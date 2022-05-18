@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f9b2792590adde8609ba35741bb711d",
+    "content-hash": "f3b20115f70074418cbd29382ed17955",
     "packages": [
         {
             "name": "brick/math",
@@ -892,6 +892,76 @@
                 }
             ],
             "time": "2022-03-20T21:55:58+00:00"
+        },
+        {
+            "name": "hacen-miske/code-generator",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hacenwey/hacen-miske.git",
+                "reference": "d49123d57d2c2c65993b4f86c84a28a66dff1d87"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hacenwey/hacen-miske/zipball/d49123d57d2c2c65993b4f86c84a28a66dff1d87",
+                "reference": "d49123d57d2c2c65993b4f86c84a28a66dff1d87",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0 || ^7.1 || ^7.2 || ^7.3 || ^7.4 || ^8.0.13"
+            },
+            "require-dev": {
+                "laravel/framework": "^5.5 || ^6.0 || ^7.0 || ^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "HacenMiske\\CodeGenerator\\CodeGeneratorServiceProvider"
+                    ],
+                    "dont-discover": [
+                        "laravel/dusk"
+                    ],
+                    "aliases": {
+                        "CrudGenerator": "HacenMiske\\CodeGenerator\\Facades\\CrudGenerator"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "HacenMiske\\CodeGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "HacenWey",
+                    "email": "elhassenidoumo@gmail.com"
+                }
+            ],
+            "description": "This package is for generating a project model , Auth , ....",
+            "keywords": [
+                "laravel",
+                "laravel-5",
+                "laravel-6",
+                "laravel-7",
+                "laravel-8",
+                "laravel-api-crud-generator",
+                "laravel-crud-generator",
+                "laravel5",
+                "laravel6",
+                "laravel7",
+                "laravel8"
+            ],
+            "support": {
+                "issues": "https://github.com/hacenwey/hacen-miske/issues",
+                "source": "https://github.com/hacenwey/hacen-miske/tree/main"
+            },
+            "time": "2022-05-13T12:05:24+00:00"
         },
         {
             "name": "laravel/framework",
@@ -7830,7 +7900,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "hacen-miske/code-generator": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\{{modelName}}Request;
+use App\Http\Services\{{modelName}}Service;
+
+
+class {{modelName}}Controller extends Controller
+{
+    public function index()
+    {
+       return {{modelName}}Service::display{{modelName}}();
+    }
+
+    public function store({{modelName}}Request $request)
+    {
+       return {{modelName}}Service::create{{modelName}}($request->all());
+    }
+
+    public function show($id)
+    {
+        return {{modelName}}Service::show{{modelName}}($id);
+    }
+
+    public function update({{modelName}}Request $request, $id)
+    {
+        return {{modelName}}Service::update{{modelName}}($request->all(), $id);
+    }
+
+    public function destroy($id)
+    {
+        return {{modelName}}Service::delete{{modelName}}($id);
+    }
+}
