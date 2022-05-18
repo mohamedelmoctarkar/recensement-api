@@ -18,6 +18,10 @@ class CreateDeclarationsTable extends Migration
             $table->json("data");
             $table->unsignedBigInteger('entity_id');
             $table->foreign('entity_id')->references('id')->on('entities');
+            $table->unsignedBigInteger('region_id');
+            $table->foreign('region_id')->references('id')->on('regions');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });
