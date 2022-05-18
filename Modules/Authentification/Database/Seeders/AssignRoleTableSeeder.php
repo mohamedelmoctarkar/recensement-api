@@ -30,7 +30,7 @@ class AssignRoleTableSeeder extends Seeder
         $user->assignRole('Admin');
         $user->givePermissionTo(Permission::all());
         $user = User::findOrFail(2);
-        $user->assignRole('User');
-        $user->givePermissionTo("read dashbord");
+        $user->assignRole('Agent');
+        $user->givePermissionTo("read AGRICULTURE");
     }
 }

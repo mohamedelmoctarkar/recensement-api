@@ -22,15 +22,19 @@ class AuthentificationDatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'admin',
-            'email' => 'admin@test.com',
-            'password' => Hash::make(123456)
+            'email' => 'admin@admin.com',
+            'phone' => '26462626',
+            'password' => Hash::make(123456),
+            'region_id' => '1'
         ]);
 
 
         DB::table('users')->insert([
-            'name' => 'user',
-            'email' => 'user@test.com',
-            'password' => Hash::make(123456)
+            'name' => 'agent',
+            'email' => 'agent@agent.com',
+            'phone' => '43462626',
+            'password' => Hash::make(123456),
+            'region_id' => '2'
         ]);
     }
 }

@@ -198,6 +198,8 @@ return [
 
 
         Spatie\Permission\PermissionServiceProvider::class,
+        Nwidart\Modules\LaravelModulesServiceProvider::class,
+
 
     ],
 
@@ -214,6 +216,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Module' => Nwidart\Modules\Facades\Module::class,
+
     ])->toArray(),
 
 ];

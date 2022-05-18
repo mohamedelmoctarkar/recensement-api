@@ -23,6 +23,6 @@ class RolesTableSeeder extends Seeder
         // $this->call("OthersTableSeeder");
 
         Role::create(['name' => 'Admin']);
-        Role::create(['name' => 'User']);
+        Role::create(['name' => 'Agent']);
     }
 }

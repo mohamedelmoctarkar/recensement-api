@@ -21,12 +21,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // $this->call([
-        //     AuthentificationDatabaseSeeder::class,
-        //     PermissionsTableSeeder::class,
-        //     RolesTableSeeder::class,
-        //     AssignRoleTableSeeder::class,
-        // ]);
+
 
 
 
@@ -139,6 +134,14 @@ class DatabaseSeeder extends Seeder
 
 
             ]
+        ]);
+
+
+        $this->call([
+            AuthentificationDatabaseSeeder::class,
+            PermissionsTableSeeder::class,
+            RolesTableSeeder::class,
+            AssignRoleTableSeeder::class,
         ]);
     }
 }
