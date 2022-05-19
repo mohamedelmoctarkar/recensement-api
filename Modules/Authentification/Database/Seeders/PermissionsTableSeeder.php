@@ -22,7 +22,7 @@ class PermissionsTableSeeder extends Seeder
         // Reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        $modules = ['HYDRAULIQU', 'ENVIRONNEMENT', 'ELEVAGE ', 'AGRICULTURE'];
+        $modules = ['HYDRAULIQU', 'ENVIRONNEMENT', 'ELEVAGE ', 'AGRICULTURE', ' UTILISATEURS'];
 
         //
 
