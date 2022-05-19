@@ -34,7 +34,6 @@ class AuthenticationService
             return response()->json(["message" => 'nnnnnnnnnn'], 401);
         }
         $token = $user->createToken('authToken')->plainTextToken;
-        // $user = $user->with('roles', 'permissions')->get();
         return response([
             'token' => $token,
             'user' => new UserResource($user),

@@ -40,3 +40,4 @@ Route::apiResource('delegations', DelegationController::class);
 Route::get('users', [AuthentificationController::class, 'index']);
 Route::post('login', [AuthentificationController::class, 'login']);
 Route::get('modules', [PermissionController::class, 'getmodules']);
+Route::post('permission/{user}', [PermissionController::class, 'updatePermission']);
