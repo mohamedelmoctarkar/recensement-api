@@ -26,10 +26,10 @@ class CreateFieldsTable extends Migration
 
             $table->unsignedBigInteger('added_for')->nullable();
             $table->foreign('added_for')->references('id')->on('fields');
-            $table->unsignedBigInteger('groupe_id');
+            $table->unsignedBigInteger('groupe_id')->nullable();
             $table->foreign('groupe_id')->references('id')->on('groupes');
 
-            $table->unsignedBigInteger('sous_groupe_id');
+            $table->unsignedBigInteger('sous_groupe_id')->nullable();
             $table->foreign('sous_groupe_id')->references('id')->on('sous_groupes');
 
             $table->timestamps();
