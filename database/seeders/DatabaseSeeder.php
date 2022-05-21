@@ -251,6 +251,18 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Appui aux bénéficiaires',
                 'form_id' => 1,
 
+            ],
+            [
+
+                'name' => 'Superficie cultivable',
+                'form_id' => 1,
+
+            ],
+            [
+
+                'name' => 'Agent de Vulgarisation à la Base (AVB)',
+                'form_id' => 1,
+
             ]
 
         ]);
@@ -266,6 +278,14 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Outillage ',
                 'groupe_id' => 1,
 
+            ],
+            [
+                'name' => 'Superficie cultivable par Moughataa',
+                'groupe_id' => 2,
+            ],
+            [
+                'name' => 'Repartition des AVB par Moughataa',
+                'groupe_id' => 3,
             ]
 
         ]);
@@ -378,6 +398,138 @@ class DatabaseSeeder extends Seeder
                 'added_for' => null,
                 'groupe_id' => 1,
                 'sous_groupe_id' => 2,
+            ],
+            [
+
+                'label' => 'Superficie totale cultivable',
+                'validator' => '',
+                'initial_value' => ' ',
+                'type' => 'string',
+                'unite' => 'ha',
+                'form_id' => 1,
+                'added_for' => null,
+                'groupe_id' => 2,
+                'sous_groupe_id' => null,
+            ],
+            [
+
+                'label' => 'Moughataa 1',
+                'validator' => '',
+                'initial_value' => ' ',
+                'type' => 'string',
+                'unite' => 'ha',
+                'form_id' => 1,
+                'added_for' => null,
+                'groupe_id' => 2,
+                'sous_groupe_id' => 2,
+            ],
+            [
+
+                'label' => 'Moughataa 2',
+                'validator' => '',
+                'initial_value' => ' ',
+                'type' => 'string',
+                'unite' => 'ha',
+                'form_id' => 1,
+                'added_for' => null,
+                'groupe_id' => 2,
+                'sous_groupe_id' => 2,
+            ],
+            [
+
+                'label' => 'Moughataa 3',
+                'validator' => '',
+                'initial_value' => ' ',
+                'type' => 'string',
+                'unite' => 'ha',
+                'form_id' => 1,
+                'added_for' => null,
+                'groupe_id' => 2,
+                'sous_groupe_id' => 2,
+            ],
+            [
+
+                'label' => 'Moughataa 4',
+                'validator' => '',
+                'initial_value' => ' ',
+                'type' => 'string',
+                'unite' => 'ha',
+                'form_id' => 1,
+                'added_for' => null,
+                'groupe_id' => 2,
+                'sous_groupe_id' => 2,
+            ],
+            [
+
+                'label' => 'Nombre total',
+                'validator' => '',
+                'initial_value' => ' ',
+                'type' => 'string',
+                'unite' => 'AVB',
+                'form_id' => 1,
+                'added_for' => null,
+                'groupe_id' => 3,
+                'sous_groupe_id' => null,
+            ],
+            [
+
+                'label' => 'Moughataa 1',
+                'validator' => '',
+                'initial_value' => ' ',
+                'type' => 'string',
+                'unite' => 'AVB',
+                'form_id' => 1,
+                'added_for' => null,
+                'groupe_id' => 3,
+                'sous_groupe_id' => 3,
+            ],
+            [
+
+                'label' => 'Moughataa 2',
+                'validator' => '',
+                'initial_value' => ' ',
+                'type' => 'string',
+                'unite' => 'AVB',
+                'form_id' => 1,
+                'added_for' => null,
+                'groupe_id' => 3,
+                'sous_groupe_id' => 3,
+            ],
+            [
+
+                'label' => 'Moughataa 3',
+                'validator' => '',
+                'initial_value' => ' ',
+                'type' => 'string',
+                'unite' => 'AVB',
+                'form_id' => 1,
+                'added_for' => null,
+                'groupe_id' => 3,
+                'sous_groupe_id' => 3,
+            ],
+            [
+
+                'label' => 'Moughataa 4',
+                'validator' => '',
+                'initial_value' => ' ',
+                'type' => 'string',
+                'unite' => 'AVB',
+                'form_id' => 1,
+                'added_for' => null,
+                'groupe_id' => 3,
+                'sous_groupe_id' => 3,
+            ],
+            [
+
+                'label' => 'Moughataa 5',
+                'validator' => '',
+                'initial_value' => ' ',
+                'type' => 'string',
+                'unite' => 'AVB',
+                'form_id' => 1,
+                'added_for' => null,
+                'groupe_id' => 3,
+                'sous_groupe_id' => 3,
             ],
         ]);
 
