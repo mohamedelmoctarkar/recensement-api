@@ -1,4 +1,6 @@
-<?php
+<?php 
+ use App\Http\Controllers\FieldController; 
+ use App\Http\Controllers\FormController;
 
 
 use Illuminate\Http\Request;
@@ -49,3 +51,5 @@ Route::middleware(['auth:sanctum'])->group(
 
 Route::post('login', [AuthentificationController::class, 'login']);
 Route::get('history', [PermissionController::class, 'getHistoryConnexion']);
+Route::apiResource('forms', FormController::class); 
+Route::apiResource('fields', FieldController::class); 

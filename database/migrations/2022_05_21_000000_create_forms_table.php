@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDeclarationsTable extends Migration
+class CreateFormsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateDeclarationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('declarations', function (Blueprint $table) {
+        Schema::create('forms', function (Blueprint $table) {
             $table->id();
-            $table->json("data");
-            $table->enum('Status', ['EN COURS', ' TERMINEE'])->default('EN COURS');
+            $table->String("name");
             $table->unsignedBigInteger('entity_id');
             $table->foreign('entity_id')->references('id')->on('entities');
-            $table->unsignedBigInteger('region_id');
-            $table->foreign('region_id')->references('id')->on('regions');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });
@@ -35,6 +30,6 @@ class CreateDeclarationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('declarations');
+        Schema::dropIfExists('forms');
     }
 }
