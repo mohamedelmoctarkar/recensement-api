@@ -4,11 +4,13 @@ namespace Modules\Authentification\Http\services;
 
 
 use Exception;
+use Carbon\Carbon;
+
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 use Modules\Authentification\Entities\User;
-use Modules\Authentification\Transformers\UserResource;
 use Modules\Authentification\Enums\Message;
+use Modules\Authentification\Transformers\UserResource;
 
 class AuthenticationService
 {
@@ -26,7 +28,7 @@ class AuthenticationService
         return $response;
     }
 
-    static function loginService($data)
+    static function loginService($data, $ip)
     {
         //return permission user
         $user = User::firstWhere('email', $data['email']);
@@ -34,6 +36,9 @@ class AuthenticationService
             return response()->json(["message" => 'nnnnnnnnnn'], 401);
         }
         $token = $user->createToken('authToken')->plainTextToken;
+        $user->last_login = Carbon::now();
+        $user->last_login_ip = $ip;
+        $user->save();
         return response([
             'token' => $token,
             'user' => new UserResource($user),

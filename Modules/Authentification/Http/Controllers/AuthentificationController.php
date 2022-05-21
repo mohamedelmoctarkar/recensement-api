@@ -28,7 +28,8 @@ class AuthentificationController extends Controller
      */
     public function login(LoginUserRequest $request)
     {
-        return  AuthenticationService::loginService($request->validated());
+
+        return  AuthenticationService::loginService($request->validated(), $request->getClientIp());
     }
     /**
      * Store a newly created resource in storage.

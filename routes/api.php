@@ -48,3 +48,4 @@ Route::middleware(['auth:sanctum'])->group(
 
 
 Route::post('login', [AuthentificationController::class, 'login']);
+Route::get('history', [PermissionController::class, 'getHistoryConnexion']);

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('phone');
             $table->unsignedBigInteger('region_id');
             $table->foreign('region_id')->references('id')->on('regions');
+            $table->string('last_login')->nullable();
+            $table->string('last_login_ip')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

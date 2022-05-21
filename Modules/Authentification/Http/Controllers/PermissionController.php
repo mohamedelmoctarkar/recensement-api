@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Modules\Authentification\Entities\User;
+use Modules\Authentification\Transformers\UserResource;
 
 class PermissionController extends Controller
 {
@@ -23,11 +24,20 @@ class PermissionController extends Controller
             $check = $user->can($request->permission);
             if (!$check) {
                 $user->givePermissionTo($request->permission);
-                $response = ['message' => 'givePermissionTo   ' . $request->permission . '   successfully'];
-                return response($response, 201);
+                $users = User::all();
+                Log::info(var_export(new UserResource($users), 1));
+                $response = [
+                    'message' => 'givePermissionTo   ' . $request->permission    . '  successfully',
+                    'data' => UserResource::Collection($users)
+                ];
             }
             $user->revokePermissionTo($request->permission);
-            $response = ['message' => 'revokePermissionTo   ' . $request->permission    . '  successfully'];
+            $users = User::all();
+            Log::info(var_export(new UserResource($users), 1));
+            $response = [
+                'message' => 'revokePermissionTo   ' . $request->permission    . '  successfully',
+                'data' => UserResource::Collection($users)
+            ];
             return response($response, 201);
         } catch (Exception $ex) {
             Log::error($ex->getMessage());
@@ -48,6 +58,20 @@ class PermissionController extends Controller
         $response = [
             'message' => !$noResults ? 'la Liste des modules a été recupées avec succès' : 'La liste de modules est vide',
             'data' => !$noResults ? $results : [],
+        ];
+
+        return response($response);
+    }
+
+    public function getHistoryConnexion()
+    {
+        $results = DB::table('personal_access_tokens')->get();
+
+        $noHistory = $results->count() === 0;
+
+        $response = [
+            'message' => !$noHistory ? 'la Liste  a été recupées avec succès' : 'La liste  est vide',
+            'data' => !$noHistory ? $results : [],
         ];
 
         return response($response);
