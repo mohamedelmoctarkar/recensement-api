@@ -16,7 +16,8 @@ class CreateDeclarationsTable extends Migration
         Schema::create('declarations', function (Blueprint $table) {
             $table->id();
             $table->json("data");
-            $table->enum('Status', ['EN COURS', ' TERMINEE'])->default('EN COURS');
+            $table->enum('status', ['EN COURS', ' TERMINEE'])->default('EN COURS');
+            $table->enum('peroid', ['Annuelle', 'Bimensuelle', 'Hebdomadaire', 'Trimestriel']);
             $table->unsignedBigInteger('entity_id');
             $table->foreign('entity_id')->references('id')->on('entities');
             $table->unsignedBigInteger('region_id');

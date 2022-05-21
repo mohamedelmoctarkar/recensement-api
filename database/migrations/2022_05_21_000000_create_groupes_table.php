@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFieldsTable extends Migration
+class CreateGroupesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateFieldsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fields', function (Blueprint $table) {
+        Schema::create('groupes', function (Blueprint $table) {
             $table->id();
-            $table->String("label");
-            $table->String("validator");
-            $table->String("initial_value");
-            $table->String("type");
-            $table->enum('status', ['string', ' number', 'select']);
+            $table->String("name");
 
             $table->unsignedBigInteger('form_id');
             $table->foreign('form_id')->references('id')->on('forms');
@@ -35,6 +31,6 @@ class CreateFieldsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fields');
+        Schema::dropIfExists('groupes');
     }
 }

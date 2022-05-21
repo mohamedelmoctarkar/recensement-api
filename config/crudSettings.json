@@ -1,7 +1,7 @@
 {
     "models": [
         {
-           "name":"Form",
+           "name":"Groupe",
             "attributes":
                 [
                     {
@@ -15,24 +15,11 @@
             "related_to": []
         },
         {
-            "name":"Field",
+            "name":"Sous_groupe",
             "attributes":
                 [
                      {
-                        "key" : "label",
-                        "db_type": "String",
-                        "str_validator":"required|max:255"
-                    },
-                    {
-                        "key" : "validator",
-                        "db_type": "String",
-                        "str_validator":"required|max:255"
-                    },{
-                        "key" : "initial_value",
-                        "db_type": "String",
-                        "str_validator":"required|max:255"
-                    },{
-                        "key" : "type",
+                        "key" : "name",
                         "db_type": "String",
                         "str_validator":"required|max:255"
                     }

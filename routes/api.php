@@ -1,4 +1,6 @@
 <?php 
+ use App\Http\Controllers\Sous_groupeController; 
+ use App\Http\Controllers\GroupeController; 
  use App\Http\Controllers\FieldController; 
  use App\Http\Controllers\FormController;
 
@@ -53,3 +55,5 @@ Route::post('login', [AuthentificationController::class, 'login']);
 Route::get('history', [PermissionController::class, 'getHistoryConnexion']);
 Route::apiResource('forms', FormController::class); 
 Route::apiResource('fields', FieldController::class); 
+Route::apiResource('groupes', GroupeController::class); 
+Route::apiResource('sous_groupes', Sous_groupeController::class); 
