@@ -76,19 +76,19 @@ class DatabaseSeeder extends Seeder
             ],
             [
 
-                'name' => 'Nouakchott-Ouest',
+                'name' => 'Keyheydi-Ouest',
 
 
             ],
             [
 
-                'name' => 'Nouakchott-Nord',
+                'name' => 'Keyheydi-Nord',
 
 
             ],
             [
 
-                'name' => 'Nouakchott-Sud',
+                'name' => 'Keyheydi-Sud',
 
 
             ],
