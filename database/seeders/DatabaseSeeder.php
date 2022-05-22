@@ -513,6 +513,22 @@ class DatabaseSeeder extends Seeder
 
 
 
+        DB::table('declarations')->insert([
+            [
+
+                "reference" => "DF0004526",
+                "peroid" => "Annuelle",
+                "form_data" => "{\"f1_sup_reel_cult\":\"786\",\"f1_solution_pr_renc_id\":\"1\",\"f1_problem_rencont\":\"السلام عليكم\",\"f1_solution_pr_renc\":\"كيف حالكم\",\"Calendrier cultural\":{\"f1_date_semis\":\"2022-05-25\",\"date_germisaison\":\"2022-05-17\"},\"Ennemies de cultures\":{\"f1_emenie_1\":\"lkjkl\",\"f2_emenie_2\":\"jkljklj\"}}",
+                "form_id" => 1
+
+            ],
+
+
+
+        ]);
+
+
+
         $this->call([
             AuthentificationDatabaseSeeder::class,
             PermissionsTableSeeder::class,

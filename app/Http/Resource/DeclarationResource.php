@@ -19,7 +19,7 @@ class DeclarationResource extends JsonResource
             'created_at' => $this->created_at,
             'reference' => $this->reference,
             'status' => $this->status,
-            'periode' => $this->periode,
+            'periode' => $this->period,
             'form_data' => $this->form_data,
             'form_id' => $this->form_id,
         ];
