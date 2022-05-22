@@ -12,9 +12,9 @@ use App\Http\Resource\FieldResource;
 class FieldService
 {
 
-     static function displayField()
+    static function displayField()
     {
-         $fields = Field::latest()->get();
+        $fields = Field::with(['form', 'groupe', 'sousGroupe'])->get();
 
         $emptyField = $fields->count() === 0;
 
@@ -29,11 +29,11 @@ class FieldService
 
     static function createField($data)
     {
-        
+
         try {
             $field = Field::create($data);
-        } catch(Exception $ex) {
-            Log::info("Problem lors de la creation d'une Field: ". json_encode($data));
+        } catch (Exception $ex) {
+            Log::info("Problem lors de la creation d'une Field: " . json_encode($data));
             Log::error($ex->getMessage());
 
             return response(['message' => 'Un problème est survenu lors de la création de la Field.'], 500);
@@ -45,23 +45,22 @@ class FieldService
         ];
 
         return response($response, 201);
-
     }
 
     static function showField($data)
     {
-         $field = Field::findOrFail($data);
+        $field = Field::findOrFail($data);
 
-        return response(['data', $field ], 200);
+        return response(['data', $field], 200);
     }
 
-    static function updateField($data,$id)
+    static function updateField($data, $id)
     {
         try {
             $field = Field::findOrFail($id);
             $field->update($data);
-        } catch(Exception $ex) {
-            Log::info("Problem lors de la lors du mise à jour d'une Field: ". json_encode($data));
+        } catch (Exception $ex) {
+            Log::info("Problem lors de la lors du mise à jour d'une Field: " . json_encode($data));
             Log::error($ex->getMessage());
 
             return response(['message' => 'Un problème est survenu lors du mise à jour de la Field.'], 500);
@@ -78,8 +77,8 @@ class FieldService
 
     static function deleteField($id)
     {
-         Field::destroy($id);
+        Field::destroy($id);
 
-        return response(['data' => null ], 204);
+        return response(['data' => null], 204);
     }
 }

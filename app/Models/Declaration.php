@@ -1,20 +1,29 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\Entity;
 
+use App\Models\Region;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Authentification\Entities\User;
 
 class Declaration extends Model
 {
     protected $guarded = ['id'];
-    protected $fillable = ["data"];
+    protected $fillable = ['data', 'status', 'peroid', 'entity_id', 'region_id', 'user_id',];
 
 
-	public function entities() 
-	{
-		return $this->hasMany(Entity::class);
-	}
- 
-    
+    public function entity()
+    {
+        return $this->BelongsTo(Entity::class);
+    }
+    public function region()
+    {
+        return $this->BelongsTo(Region::class);
+    }
+    public function user()
+    {
+        return $this->BelongsTo(User::class);
+    }
 }

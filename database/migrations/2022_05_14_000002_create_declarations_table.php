@@ -15,7 +15,7 @@ class CreateDeclarationsTable extends Migration
     {
         Schema::create('declarations', function (Blueprint $table) {
             $table->id();
-            $table->json("data");
+            $table->json('data');
             $table->enum('status', ['EN COURS', ' TERMINEE'])->default('EN COURS');
             $table->enum('peroid', ['Annuelle', 'Bimensuelle', 'Hebdomadaire', 'Trimestriel']);
             $table->unsignedBigInteger('entity_id');
@@ -24,6 +24,10 @@ class CreateDeclarationsTable extends Migration
             $table->foreign('region_id')->references('id')->on('regions');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('form_id');
+            $table->foreign('form_id')->references('id')->on('forms');
+
 
             $table->timestamps();
         });

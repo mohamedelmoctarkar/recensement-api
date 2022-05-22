@@ -1,8 +1,9 @@
-<?php 
- use App\Http\Controllers\Sous_groupeController; 
- use App\Http\Controllers\GroupeController; 
- use App\Http\Controllers\FieldController; 
- use App\Http\Controllers\FormController;
+<?php
+
+use App\Http\Controllers\Sous_groupeController;
+use App\Http\Controllers\GroupeController;
+use App\Http\Controllers\FieldController;
+use App\Http\Controllers\FormController;
 
 
 use Illuminate\Http\Request;
@@ -35,25 +36,25 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware(['auth:sanctum'])->group(
-    function () {
-        Route::apiResource('regions', RegionController::class);
-        Route::apiResource('entities', EntityController::class);
-        Route::apiResource('declarations', DeclarationController::class);
-        Route::apiResource('moughataas', MoughataaController::class);
-        Route::apiResource('delegations', DelegationController::class);
-        Route::get('modules', [PermissionController::class, 'getmodules']);
-        Route::post('permission/{user}', [PermissionController::class, 'updatePermission']);
-        Route::get('users', [AuthentificationController::class, 'index']);
-    }
-);
+// Route::middleware(['auth:sanctum'])->group(
+//     function () {
+Route::apiResource('regions', RegionController::class);
+Route::apiResource('entities', EntityController::class);
+Route::apiResource('declarations', DeclarationController::class);
+Route::apiResource('moughataas', MoughataaController::class);
+Route::apiResource('delegations', DelegationController::class);
+Route::get('modules', [PermissionController::class, 'getmodules']);
+Route::post('permission/{user}', [PermissionController::class, 'updatePermission']);
+Route::get('users', [AuthentificationController::class, 'index']);
+//     }
+// );
 
 
 
 
 Route::post('login', [AuthentificationController::class, 'login']);
 Route::get('history', [PermissionController::class, 'getHistoryConnexion']);
-Route::apiResource('forms', FormController::class); 
-Route::apiResource('fields', FieldController::class); 
-Route::apiResource('groupes', GroupeController::class); 
-Route::apiResource('sous_groupes', Sous_groupeController::class); 
+Route::apiResource('forms', FormController::class);
+Route::apiResource('fields', FieldController::class);
+Route::apiResource('groupes', GroupeController::class);
+Route::apiResource('sous_groupes', Sous_groupeController::class);

@@ -12,9 +12,9 @@ use App\Http\Resource\DeclarationResource;
 class DeclarationService
 {
 
-     static function displayDeclaration()
+    static function displayDeclaration()
     {
-         $declarations = Declaration::latest()->get();
+        $declarations = Declaration::with(['entity', 'region', 'user'])->get();
 
         $emptyDeclaration = $declarations->count() === 0;
 
@@ -29,11 +29,11 @@ class DeclarationService
 
     static function createDeclaration($data)
     {
-        
+
         try {
             $declaration = Declaration::create($data);
-        } catch(Exception $ex) {
-            Log::info("Problem lors de la creation d'une Declaration: ". json_encode($data));
+        } catch (Exception $ex) {
+            Log::info("Problem lors de la creation d'une Declaration: " . json_encode($data));
             Log::error($ex->getMessage());
 
             return response(['message' => 'Un problème est survenu lors de la création de la Declaration.'], 500);
@@ -45,23 +45,22 @@ class DeclarationService
         ];
 
         return response($response, 201);
-
     }
 
     static function showDeclaration($data)
     {
-         $declaration = Declaration::findOrFail($data);
+        $declaration = Declaration::findOrFail($data);
 
-        return response(['data', $declaration ], 200);
+        return response(['data', $declaration], 200);
     }
 
-    static function updateDeclaration($data,$id)
+    static function updateDeclaration($data, $id)
     {
         try {
             $declaration = Declaration::findOrFail($id);
             $declaration->update($data);
-        } catch(Exception $ex) {
-            Log::info("Problem lors de la lors du mise à jour d'une Declaration: ". json_encode($data));
+        } catch (Exception $ex) {
+            Log::info("Problem lors de la lors du mise à jour d'une Declaration: " . json_encode($data));
             Log::error($ex->getMessage());
 
             return response(['message' => 'Un problème est survenu lors du mise à jour de la Declaration.'], 500);
@@ -78,8 +77,8 @@ class DeclarationService
 
     static function deleteDeclaration($id)
     {
-         Declaration::destroy($id);
+        Declaration::destroy($id);
 
-        return response(['data' => null ], 204);
+        return response(['data' => null], 204);
     }
 }
