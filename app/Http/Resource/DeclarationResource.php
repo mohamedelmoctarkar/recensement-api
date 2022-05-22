@@ -15,7 +15,13 @@ class DeclarationResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'data' =>$this->data, 
-			];
+            'id' => $this->id,
+            'created_at' => $this->created_at,
+            'reference' => $this->reference,
+            'status' => $this->status,
+            'periode' => $this->periode,
+            'form_data' => $this->form_data,
+            'form_id' => $this->form_id,
+        ];
     }
 }

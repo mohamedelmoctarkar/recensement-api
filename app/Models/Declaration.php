@@ -12,9 +12,7 @@ use Modules\Authentification\Entities\User;
 class Declaration extends Model
 {
     protected $guarded = ['id'];
-    protected $fillable = ['data', 'status', 'peroid', 'entity_id', 'region_id', 'user_id', 'form_id'];
-
-
+    protected $fillable = ['form_data', 'reference', 'status', 'peroid', 'entity_id', 'region_id', 'user_id', 'form_id'];
 
     public function form()
     {

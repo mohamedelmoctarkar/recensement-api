@@ -20,7 +20,7 @@ class DeclarationService
 
         $response = [
             'message' => !$emptyDeclaration ? 'la Liste des Declaration a été recupées avec succès' : 'La liste de Declaration est vide',
-            'data' => !$emptyDeclaration ? $declarations : []
+            'data' => !$emptyDeclaration ? new DeclarationResource($declarations) : []
         ];
 
         return response($response);

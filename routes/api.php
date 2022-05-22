@@ -30,18 +30,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware(['auth:sanctum'])->group(
-    function () {
-        Route::apiResource('regions', RegionController::class);
-        Route::apiResource('entities', EntityController::class);
-        Route::apiResource('declarations', DeclarationController::class);
-        Route::apiResource('moughataas', MoughataaController::class);
-        Route::apiResource('delegations', DelegationController::class);
-        Route::get('modules', [PermissionController::class, 'getmodules']);
-        Route::post('permission/{user}', [PermissionController::class, 'updatePermission']);
-        Route::get('users', [AuthentificationController::class, 'index']);
-    }
-);
+// Route::middleware(['auth:sanctum'])->group(
+//     function () {
+Route::apiResource('regions', RegionController::class);
+Route::apiResource('entities', EntityController::class);
+Route::apiResource('declarations', DeclarationController::class);
+Route::apiResource('moughataas', MoughataaController::class);
+Route::apiResource('delegations', DelegationController::class);
+Route::get('modules', [PermissionController::class, 'getmodules']);
+Route::post('permission/{user}', [PermissionController::class, 'updatePermission']);
+Route::get('users', [AuthentificationController::class, 'index']);
+//     }
+// );
 
 
 
