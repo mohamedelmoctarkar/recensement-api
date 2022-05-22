@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -517,7 +518,8 @@ class DatabaseSeeder extends Seeder
             [
 
                 "reference" => "DF0004526",
-                "peroid" => "Annuelle",
+                "created_at" => Carbon::now(),
+                "peroid" => "ANUELLE",
                 "form_data" => "{\"f1_sup_reel_cult\":\"786\",\"f1_solution_pr_renc_id\":\"1\",\"f1_problem_rencont\":\"السلام عليكم\",\"f1_solution_pr_renc\":\"كيف حالكم\",\"Calendrier cultural\":{\"f1_date_semis\":\"2022-05-25\",\"date_germisaison\":\"2022-05-17\"},\"Ennemies de cultures\":{\"f1_emenie_1\":\"lkjkl\",\"f2_emenie_2\":\"jkljklj\"}}",
                 "form_id" => 1
 
