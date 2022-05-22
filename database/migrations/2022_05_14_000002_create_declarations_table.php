@@ -15,10 +15,10 @@ class CreateDeclarationsTable extends Migration
     {
         Schema::create('declarations', function (Blueprint $table) {
             $table->id();
-            $table->string('reference');
+            $table->string('reference')->nullable();
             $table->json('form_data');
-            $table->enum('status', ['EN COURS', ' VALIDEE'])->default('EN COURS');
-            $table->enum('peroid', ['Annuelle', 'Bimensuelle', 'Hebdomadaire', 'Trimestriel']);
+            $table->enum('status', ['EN COURS', ' VALIDEE'])->nullable();
+            $table->enum('peroid', ['Annuelle', 'Bimensuelle', 'Hebdomadaire', 'Trimestriel'])->nullable();
             $table->unsignedBigInteger('entity_id')->nullable();
             $table->foreign('entity_id')->references('id')->on('entities');
             $table->unsignedBigInteger('region_id')->nullable();
