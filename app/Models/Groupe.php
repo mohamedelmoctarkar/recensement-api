@@ -9,7 +9,8 @@ class Groupe extends Model
     protected $guarded = ['id'];
     protected $fillable = ["name"];
 
-
- 
-    
+    function fields()
+    {
+        return $this->hasMany(Field::class);
+    }
 }

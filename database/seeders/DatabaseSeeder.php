@@ -207,7 +207,7 @@ class DatabaseSeeder extends Seeder
         DB::table('forms')->insert([
             [
 
-                'name' => 'Culture maraichère',
+                'name' => 'Fiche Anuelle',
                 'entity_id' => 1
 
 
@@ -215,34 +215,12 @@ class DatabaseSeeder extends Seeder
             ],
             [
 
-                'name' => 'Culture sous-pluie',
-                'entity_id' => 2
+                'name' => 'Fiche Mensuelle',
+                'entity_id' => 1
 
             ],
-            [
 
-                'name' => 'Culture de décrues',
-                'entity_id' => 3
 
-            ],
-            [
-
-                'name' => 'élevage ',
-                'entity_id' => 4
-
-            ],
-            [
-
-                'name' => 'environnement',
-                'entity_id' => 5
-
-            ],
-            [
-
-                'name' => 'hydraulique',
-                'entity_id' => 6
-
-            ],
         ]);
 
         DB::table('groupes')->insert([

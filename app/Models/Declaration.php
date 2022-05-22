@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Entity;
+use App\Models\Form;
 
+use App\Models\Entity;
 use App\Models\Region;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Authentification\Entities\User;
@@ -11,8 +12,14 @@ use Modules\Authentification\Entities\User;
 class Declaration extends Model
 {
     protected $guarded = ['id'];
-    protected $fillable = ['data', 'status', 'peroid', 'entity_id', 'region_id', 'user_id',];
+    protected $fillable = ['data', 'status', 'peroid', 'entity_id', 'region_id', 'user_id', 'form_id'];
 
+
+
+    public function form()
+    {
+        return $this->BelongsTo(Form::class);
+    }
 
     public function entity()
     {
