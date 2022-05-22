@@ -32,5 +32,8 @@ class AssignRoleTableSeeder extends Seeder
         $user = User::findOrFail(2);
         $user->assignRole('Agent');
         $user->givePermissionTo("read AGRICULTURE");
+        $user->givePermissionTo("read HYDRAULIQU");
+        $user->givePermissionTo("read ENVIRONNEMENT");
+        $user->givePermissionTo("read ELEVAGE");
     }
 }
