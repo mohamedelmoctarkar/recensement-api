@@ -12,9 +12,9 @@ use App\Http\Resource\EntityResource;
 class EntityService
 {
 
-     static function displayEntity()
+    static function displayEntity()
     {
-         $entities = Entity::latest()->get();
+        $entities = Entity::with(['delecations'])->get();
 
         $emptyEntity = $entities->count() === 0;
 
@@ -29,11 +29,11 @@ class EntityService
 
     static function createEntity($data)
     {
-        
+
         try {
             $entity = Entity::create($data);
-        } catch(Exception $ex) {
-            Log::info("Problem lors de la creation d'une Entity: ". json_encode($data));
+        } catch (Exception $ex) {
+            Log::info("Problem lors de la creation d'une Entity: " . json_encode($data));
             Log::error($ex->getMessage());
 
             return response(['message' => 'Un problème est survenu lors de la création de la Entity.'], 500);
@@ -45,23 +45,22 @@ class EntityService
         ];
 
         return response($response, 201);
-
     }
 
     static function showEntity($data)
     {
-         $entity = Entity::findOrFail($data);
+        $entity = Entity::findOrFail($data);
 
-        return response(['data', $entity ], 200);
+        return response(['data', $entity], 200);
     }
 
-    static function updateEntity($data,$id)
+    static function updateEntity($data, $id)
     {
         try {
             $entity = Entity::findOrFail($id);
             $entity->update($data);
-        } catch(Exception $ex) {
-            Log::info("Problem lors de la lors du mise à jour d'une Entity: ". json_encode($data));
+        } catch (Exception $ex) {
+            Log::info("Problem lors de la lors du mise à jour d'une Entity: " . json_encode($data));
             Log::error($ex->getMessage());
 
             return response(['message' => 'Un problème est survenu lors du mise à jour de la Entity.'], 500);
@@ -78,8 +77,8 @@ class EntityService
 
     static function deleteEntity($id)
     {
-         Entity::destroy($id);
+        Entity::destroy($id);
 
-        return response(['data' => null ], 204);
+        return response(['data' => null], 204);
     }
 }
