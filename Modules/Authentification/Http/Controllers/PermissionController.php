@@ -24,19 +24,15 @@ class PermissionController extends Controller
             $check = $user->can($request->permission);
             if (!$check) {
                 $user->givePermissionTo($request->permission);
-                $users = User::all();
-                Log::info(var_export(new UserResource($users), 1));
+                Log::error($request->all());
                 $response = [
                     'message' => 'givePermissionTo   ' . $request->permission    . '  successfully',
-                    'data' => UserResource::Collection($users)
                 ];
+                return response($response, 201);
             }
             $user->revokePermissionTo($request->permission);
-            $users = User::all();
-            Log::info(var_export(new UserResource($users), 1));
             $response = [
                 'message' => 'revokePermissionTo   ' . $request->permission    . '  successfully',
-                'data' => UserResource::Collection($users)
             ];
             return response($response, 201);
         } catch (Exception $ex) {
