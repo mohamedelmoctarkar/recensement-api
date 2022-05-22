@@ -2,6 +2,7 @@
 
 namespace App\Http\Resource;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class DeclarationResource extends JsonResource
@@ -16,7 +17,7 @@ class DeclarationResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'created_at' => $this->created_at,
+            'created_at' =>  Carbon::parse($this->created_at)->format('M d Y'),
             'reference' => $this->reference,
             'status' => $this->status,
             'periode' => $this->period,
