@@ -17,7 +17,7 @@ class CreateDeclarationsTable extends Migration
             $table->id();
             $table->string('reference');
             $table->json('form_data');
-            $table->enum('status', ['EN COURS', ' TERMINEE'])->default('EN COURS');
+            $table->enum('status', ['EN COURS', ' VALIDEE'])->default('EN COURS');
             $table->enum('peroid', ['Annuelle', 'Bimensuelle', 'Hebdomadaire', 'Trimestriel']);
             $table->unsignedBigInteger('entity_id')->nullable();
             $table->foreign('entity_id')->references('id')->on('entities');

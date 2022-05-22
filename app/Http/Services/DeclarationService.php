@@ -6,7 +6,6 @@ namespace App\Http\services;
 use Exception;
 use App\Models\Declaration;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Hash;
 use App\Http\Resource\DeclarationResource;
 
 class DeclarationService

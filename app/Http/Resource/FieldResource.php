@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Resources;
+namespace App\Http\Resource;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -15,10 +15,10 @@ class FieldResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'label' =>$this->label, 
-			'validator' =>$this->validator, 
-			'initial_value' =>$this->initial_value, 
-			'type' =>$this->type, 
-			];
+            'label' => $this->label,
+            'validator' => $this->validator,
+            'initial_value' => $this->initial_value,
+            'type' => $this->type,
+        ];
     }
 }
