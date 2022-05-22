@@ -4,9 +4,9 @@ namespace App\Http\services;
 
 
 use Exception;
+use App\Models\Declaration;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Declaration;
 use App\Http\Resource\DeclarationResource;
 
 class DeclarationService
@@ -20,7 +20,7 @@ class DeclarationService
 
         $response = [
             'message' => !$emptyDeclaration ? 'la Liste des Declaration a été recupées avec succès' : 'La liste de Declaration est vide',
-            'data' => !$emptyDeclaration ? new DeclarationResource($declarations) : []
+            'data' => !$emptyDeclaration ?  DeclarationResource::collection($declarations) : []
         ];
 
         return response($response);
