@@ -17,8 +17,8 @@ class CreateDeclarationsTable extends Migration
             $table->id();
             $table->string('reference')->nullable();
             $table->json('form_data');
-            $table->enum('status', ['EN COURS', ' VALIDEE'])->nullable();
-            $table->enum('peroid', ['Annuelle', 'Bimensuelle', 'Hebdomadaire', 'Trimestriel'])->nullable();
+            $table->string('status')->nullable();
+            $table->string('period')->nullable();
             $table->unsignedBigInteger('entity_id')->nullable();
             $table->foreign('entity_id')->references('id')->on('entities');
             $table->unsignedBigInteger('region_id')->nullable();

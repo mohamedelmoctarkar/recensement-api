@@ -18,9 +18,9 @@ class DeclarationResource extends JsonResource
         return [
             'id' => $this->id,
             'created_at' =>  Carbon::parse($this->created_at)->format('M d Y'),
-            'reference' => $this->reference,
+            'reference' => 'D2022-' . $this->id,
             'status' => $this->status,
-            'periode' => $this->period,
+            'period' => $this->period,
             'form_data' => $this->form_data,
             'form_id' => $this->form_id,
         ];
