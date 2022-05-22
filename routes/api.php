@@ -4,18 +4,11 @@ use App\Http\Controllers\Sous_groupeController;
 use App\Http\Controllers\GroupeController;
 use App\Http\Controllers\FieldController;
 use App\Http\Controllers\FormController;
-
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntityController;
-use App\Http\Controllers\PeroidController;
 use App\Http\Controllers\RegionController;
-
-use App\Http\Controllers\CultureController;
 use App\Http\Controllers\MoughataaController;
-use App\Http\Controllers\CollectionController;
-
 use App\Http\Controllers\DelegationController;
 use App\Http\Controllers\DeclarationController;
 use Modules\Authentification\Http\Controllers\PermissionController;
