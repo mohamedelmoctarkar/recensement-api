@@ -50,17 +50,17 @@ class AuthenticationService
 
     static function registerService($data)
     {
-
+        Log::error($data);
         try {
             $data['password'] = Hash::make($data['password']);
             $user = User::create($data);
             $user->assignRole($data['roles']);
         } catch (Exception $ex) {
-            Log::info(Message::error_message  . json_encode($data));
+            Log::info('error' . json_encode($data));
             Log::error($ex->getMessage());
         }
 
-        $response = ['message' =>  Message::message_de_création_de_compte,];
+        $response = ['message' => 'ggggggg',];
 
         return response($response, 201);
     }

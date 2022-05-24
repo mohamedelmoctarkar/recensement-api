@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phone');
-            $table->unsignedBigInteger('region_id');
+            $table->string('phone')->nullable();
+            $table->unsignedBigInteger('region_id')->nullable();
             $table->foreign('region_id')->references('id')->on('regions');
             $table->string('last_login')->nullable();
             $table->string('last_login_ip')->nullable();

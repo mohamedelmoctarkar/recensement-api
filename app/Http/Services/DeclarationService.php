@@ -6,6 +6,7 @@ namespace App\Http\services;
 use Exception;
 use App\Models\Declaration;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Resource\DeclarationResource;
 
 class DeclarationService
@@ -13,7 +14,8 @@ class DeclarationService
 
     static function displayDeclaration($id)
     {
-        $declarations = Declaration::with(['entity', 'region', 'user'])->where('form_id', $id)->get();
+        $user = Auth::user();
+        $declarations = Declaration::with(['entity', 'region', 'user'])->where('form_id', $id)->where('region_id', $user->region->id)->get();
 
         $emptyDeclaration = $declarations->count() === 0;
 

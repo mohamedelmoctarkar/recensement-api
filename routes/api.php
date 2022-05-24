@@ -30,27 +30,25 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::middleware(['auth:sanctum'])->group(
-//     function () {
-Route::apiResource('regions', RegionController::class);
-Route::apiResource('entities', EntityController::class);
-Route::apiResource('declarations', DeclarationController::class);
-Route::apiResource('moughataas', MoughataaController::class);
-Route::apiResource('delegations', DelegationController::class);
-Route::get('modules', [PermissionController::class, 'getmodules']);
-Route::post('permission/{user}', [PermissionController::class, 'updatePermission']);
-Route::get('users', [AuthentificationController::class, 'index']);
-//     }
-// );
-
-
-
+Route::middleware(['auth:sanctum'])->group(
+    function () {
+        Route::apiResource('regions', RegionController::class);
+        Route::apiResource('entities', EntityController::class);
+        Route::apiResource('declarations', DeclarationController::class);
+        Route::apiResource('moughataas', MoughataaController::class);
+        Route::apiResource('delegations', DelegationController::class);
+        Route::get('modules', [PermissionController::class, 'getmodules']);
+        Route::post('permission/{user}', [PermissionController::class, 'updatePermission']);
+        Route::get('users', [AuthentificationController::class, 'index']);
+        Route::apiResource('forms', FormController::class);
+        Route::apiResource('fields', FieldController::class);
+        Route::apiResource('groupes', GroupeController::class);
+        Route::apiResource('sous_groupes', Sous_groupeController::class);
+        Route::post('getDeclaration/{id}', [RecencementController::class, 'getDeclaration']);
+        Route::post('getForms/{id}', [RecencementController::class, 'getForms']);
+        Route::post('register', [AuthentificationController::class, 'register']);
+        Route::get('history', [PermissionController::class, 'getHistoryConnexion']);
+    }
+);
 
 Route::post('login', [AuthentificationController::class, 'login']);
-Route::get('history', [PermissionController::class, 'getHistoryConnexion']);
-Route::apiResource('forms', FormController::class);
-Route::apiResource('fields', FieldController::class);
-Route::apiResource('groupes', GroupeController::class);
-Route::apiResource('sous_groupes', Sous_groupeController::class);
-Route::post('getDeclaration/{id}', [RecencementController::class, 'getDeclaration']);
-Route::post('getForms/{id}', [RecencementController::class, 'getForms']);

@@ -14,11 +14,12 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'prenom' => 'required',
-            'email' => 'required|unique:users,email',
-            'password' => 'required|min:6',
-            'roles' => 'required'
+            'name' => '',
+            'prenom' => '',
+            'email' => '',
+            'phone' => '',
+            'password' => '',
+            'roles' => ''
         ];
     }
 
