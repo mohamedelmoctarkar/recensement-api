@@ -16,6 +16,7 @@ class FormResource extends JsonResource
     {
         return [
             'name' => $this->name,
+            'groups' => GroupeResource::collection($this->groups)
         ];
     }
 }

@@ -14,7 +14,7 @@ class FormService
 
     static function displayForm()
     {
-        $forms = Form::with(['entity', 'fileds', 'groupes.fields'])->get();
+        $forms = Form::with(['fileds', 'groupes.fields'])->get();
 
         $emptyForm = $forms->count() === 0;
 

@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DeclarationRequest;
 use App\Http\Services\DeclarationService;
-
+use Illuminate\Http\Request;
 
 class DeclarationController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-       return DeclarationService::displayDeclaration();
+       return DeclarationService::displayDeclaration($request->id);
     }
 
     public function store(DeclarationRequest $request)

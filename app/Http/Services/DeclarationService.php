@@ -11,9 +11,9 @@ use App\Http\Resource\DeclarationResource;
 class DeclarationService
 {
 
-    static function displayDeclaration()
+    static function displayDeclaration($id)
     {
-        $declarations = Declaration::with(['entity', 'region', 'user'])->get();
+        $declarations = Declaration::with(['entity', 'region', 'user'])->where('form_id', $id)->get();
 
         $emptyDeclaration = $declarations->count() === 0;
 
@@ -40,7 +40,7 @@ class DeclarationService
 
         $response = [
             'message' => 'La Declaration à été créé avec succèss',
-            'data' => $declaration
+            'data' => new DeclarationResource($declaration)
         ];
 
         return response($response, 201);
